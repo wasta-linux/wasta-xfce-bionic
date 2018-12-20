@@ -8,9 +8,9 @@ Homepage: https://github.com/wasta-linux/wasta-xfce-bionic
 
 Package: wasta-xfce-bionic
 Architecture: all
-Depends: ksuperkey, wasta-core-bionic, wasta-multidesktop-bionic (> 1.1.9), xfce4-appfinder, xfce4-panel, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-whiskermenu-plugin, xfdesktop4, xfwm4, ${shlibs:Depends}, ${misc:Depends}
-Recommends: menulibre, mugshot, pavucontrol, thunar-volman, wasta-papirus
+Depends: ksuperkey, menulibre, mugshot, pavucontrol, sox, thunar-volman, wasta-core-bionic, wasta-multidesktop-bionic (> 1.1.9), wasta-papirus, xfce4-appfinder, xfce4-panel, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-whiskermenu-plugin, xfdesktop4, xfwm4, ${shlibs:Depends}, ${misc:Depends}
 Provides: xscreensaver
+Breaks: xscreensaver
 Conflicts: xscreensaver
 Replaces: xscreensaver
 Description: Wasta-Linux XFCE Customization for 18.04 Bionic
