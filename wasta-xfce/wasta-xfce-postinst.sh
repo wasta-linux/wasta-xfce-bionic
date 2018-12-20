@@ -7,15 +7,7 @@
 #   installation of wasta-xfce-common.  It can be manually re-run, but is
 #   only intended to be run at package installation.
 #
-# 2015-06-16 rik: initial script
-# 2015-06-22 rik: pulse audio: register volume change sound
-# 2015-06-24 rik: hiding xfce poer manager from other desktops
-#   - adding mintLocale and mintdrivers to xfce system settings
-#   - hide xfce4-appfinder from all desktops (only launch via key combo)
-# 2015-06-29 rik: fix mintdrivers desktop cleanup errors
-# 2015-06-29 rik: xfce4-xscreenshooter - no display all desktops (gnome already
-#   has one and it is adequate.
-# 2016-07-29 rik: updating for 16.04
+# 2018-12-20 rik: initial script
 #
 # ==============================================================================
 
@@ -25,19 +17,34 @@
 #   No fancy "double click" here because normal user should never need to run
 if [ $(id -u) -ne 0 ]
 then
-	echo
-	echo "Exiting...."
-	sleep 5s
-	exit 1
+    echo
+    echo "Exiting...."
+    sleep 5s
+    exit 1
 fi
 
 # ------------------------------------------------------------------------------
 # Initial Setup
 # ------------------------------------------------------------------------------
-
 echo
 echo "*** Beginning wasta-xfce-postinst.sh"
 echo
+
+# Setup Diretory for later reference
+DIR=/usr/share/wasta-xfce
+
+# ------------------------------------------------------------------------------
+# Setup default xfce layout
+# ------------------------------------------------------------------------------
+# use xfce4-redmond-lite if nothing already set
+if ! [ -e /etc/xdg/xdg-xfce/xfce4 ];
+then
+    echo
+    echo "*** Setting xfce4-redmond-lite as default xfce layout"
+    echo
+    mkdir -p /etc/xdg/xdg-xfce
+    ln -s $DIR/resources/xfce4-redmond-lite /etc/xdg/xdg-xfce/xfce4
+fi
 
 # ------------------------------------------------------------------------------
 # Configure Qt apps to use GTK+ theme by default

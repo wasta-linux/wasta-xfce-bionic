@@ -11,7 +11,7 @@ Architecture: all
 Depends: ksuperkey, wasta-core-bionic, wasta-multidesktop-bionic, xfce4-appfinder, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-whiskermenu-plugin, xfdesktop4, xfwm4, ${shlibs:Depends}, ${misc:Depends}
 Recommends: menulibre, mugshot, pavucontrol
 Description: Wasta-Linux XFCE Customization for 18.04 Bionic
- XFCE desktop setup for Wasta-Linux.  By default, the "lite" settings of
- XFCE are configured as the system defaults.  In the future, a wasta-layout
- option will allow users to set different XFCE layouts as default for the
- system.
+ XFCE desktop setup for Wasta-Linux.  By default, the "redmond-lite" layout
+ is configured as the system default.  In the future, a wasta-xfce-layout
+ app will allow users to set different XFCE layouts as default for the
+ current user and for the system.
