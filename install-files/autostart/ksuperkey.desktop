@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=ksuperkey
+Comment=ksuperkey for whiskermenu launching
+Exec=ksuperkey
+Icon=applications-system
+Terminal=false
+Type=Application
+StartupNotify=false
+OnlyShowIn=XFCE;

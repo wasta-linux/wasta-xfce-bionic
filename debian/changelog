@@ -1,0 +1,5 @@
+wasta-xfce-core-bionic (0.9.0) bionic; urgency=medium
+
+  * initial release for Ubuntu 18.04
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Thu, 20 Dec 2018 09:27:34 +0300

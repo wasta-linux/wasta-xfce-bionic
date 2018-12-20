@@ -1,0 +1,16 @@
+Source: wasta-xfce-core-bionic
+Section: utils
+Priority: optional
+Maintainer: Rik Shaw <rikshaw76@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.5
+Homepage: https://github.com/wasta-linux/wasta-xfce-core-bionic
+
+Package: wasta-xfce-core-bionic
+Architecture: all
+Depends: ksuperkey, wasta-core-bionic, wasta-multidesktop-bionic, xfce4-appfinder, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-whiskermenu-plugin, xfdesktop4, xfwm4, ${shlibs:Depends}, ${misc:Depends}
+Recommends: menulibre, mugshot, pavucontrol
+Description: Wasta-Linux XFCE Core
+ Base package for XFCE desktop setup in Wasta-Linux. This package should not
+ be installed directly, but is a dependency of either wasta-xfce-bionic or
+ wasta-xfce-lite-bionic, which are the packages that the end user installs.
