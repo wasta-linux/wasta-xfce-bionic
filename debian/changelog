@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.2) bionic; urgency=medium
+
+  * minor tweaks to xfce4-redmond-lite
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Thu, 20 Dec 2018 13:03:48 +0300
+
 wasta-xfce-bionic (0.9.1) bionic; urgency=medium
 
   * re-organizing to support wasta-xfce-layout in the future

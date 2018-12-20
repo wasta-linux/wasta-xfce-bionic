@@ -12,5 +12,7 @@
       <value type="string" value="Workspace 1"/>
       <value type="string" value="Workspace 2"/>
     </property>
+    <property name="wrap_windows" type="bool" value="false"/>
+    <property name="wrap_workspaces" type="bool" value="false"/>
   </property>
 </channel>
