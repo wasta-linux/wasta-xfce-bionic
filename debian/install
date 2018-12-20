@@ -1,4 +1,5 @@
 install-files/autostart                     etc/xdg
 install-files/bin                           usr
 install-files/helpers                       usr/share/xfce4
-wasta-xfce-core                             usr/share
+install-files/xfce4                         etc/xdg/xdg-xfce
+wasta-xfce                                  usr/share

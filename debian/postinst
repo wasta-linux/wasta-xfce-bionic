@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for wasta-xfce-core
+# postinst script for wasta-xfce
 #
 # see: dh_installdeb(1)
 
@@ -13,7 +13,7 @@ case "$1" in
         #   If not, later updates to package won't install either because
         #   the broken version will attempt to keep installing until manually
         #   uninstalled.
-        bash /usr/share/wasta-xfce-core/wasta-xfce-core-postinst.sh
+        bash /usr/share/wasta-xfce/wasta-xfce-postinst.sh
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

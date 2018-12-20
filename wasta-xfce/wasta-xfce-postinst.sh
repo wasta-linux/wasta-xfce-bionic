@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-# wasta-xfce-core: wasta-xfce-core-postinst.sh
+# wasta-xfce: wasta-xfce-postinst.sh
 #
 # This script is automatically run by the postinst configure step on
 #   installation of wasta-xfce-common.  It can be manually re-run, but is
@@ -36,7 +36,7 @@ fi
 # ------------------------------------------------------------------------------
 
 echo
-echo "*** Beginning wasta-xfce-core-postinst.sh"
+echo "*** Beginning wasta-xfce-postinst.sh"
 echo
 
 # ------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ echo
 # Finished
 # ------------------------------------------------------------------------------
 echo
-echo "*** Finished with wasta-xfce-core-postinst.sh"
+echo "*** Finished with wasta-xfce-postinst.sh"
 echo
 
 exit 0
