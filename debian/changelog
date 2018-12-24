@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.5) bionic; urgency=medium
+
+  * xfce4-redmond-lite: cycle all windows (including hidden)
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Mon, 24 Dec 2018 15:13:11 +0300
+
 wasta-xfce-bionic (0.9.4) bionic; urgency=medium
 
   * xfce4-redmond-lite: raise_with_any_button = false
