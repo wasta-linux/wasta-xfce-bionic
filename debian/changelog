@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.4) bionic; urgency=medium
+
+  * xfce4-redmond-lite: raise_with_any_button = false
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Mon, 24 Dec 2018 12:04:44 +0300
+
 wasta-xfce-bionic (0.9.3) bionic; urgency=medium
 
   * debian/control: moving items to Depends, adding sox
