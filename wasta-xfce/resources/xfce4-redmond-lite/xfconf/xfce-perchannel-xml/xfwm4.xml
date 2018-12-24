@@ -4,6 +4,7 @@
   <property name="general" type="empty">
     <property name="button_layout" type="string" value="O|HMC"/>
     <property name="cycle_hidden" type="bool" value="true"/>
+    <property name="mousewheel_rollup" type="bool" value="false"/>
     <property name="raise_with_any_button" type="bool" value="false"/>
     <property name="scroll_workspaces" type="bool" value="false"/>
     <property name="theme" type="string" value="Arc-Darker"/>
