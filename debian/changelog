@@ -1,3 +1,10 @@
+wasta-xfce-bionic (0.9.6) bionic; urgency=medium
+
+  * xfce4-redmond-lite: xfcd4-power-manager handle-brightness-keys true
+  * xfce4-redmond-lite: cleanup of xfce-perchannel-xml settings
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Tue, 08 Jan 2019 13:04:59 +0300
+
 wasta-xfce-bionic (0.9.5) bionic; urgency=medium
 
   * xfce4-redmond-lite: cycle all windows (including hidden)
