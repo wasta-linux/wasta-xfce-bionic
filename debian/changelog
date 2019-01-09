@@ -1,6 +1,7 @@
 wasta-xfce-bionic (0.9.7) bionic; urgency=medium
 
   * xfce4-redmond-lite: set monitor1 backgrounds in xfce4-display.xml
+    - add wasta-backup and wasta-resources launchers to the panel
 
  -- Rik Shaw <rikshaw76@gmail.com>  Wed, 09 Jan 2019 12:49:31 +0300
 
