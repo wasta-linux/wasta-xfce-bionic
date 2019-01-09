@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.7) bionic; urgency=medium
+
+  * xfce4-redmond-lite: set monitor1 backgrounds in xfce4-display.xml
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 09 Jan 2019 12:49:31 +0300
+
 wasta-xfce-bionic (0.9.6) bionic; urgency=medium
 
   * xfce4-redmond-lite: xfcd4-power-manager handle-brightness-keys true
