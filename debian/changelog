@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.8) bionic; urgency=medium
+
+  * debian/control: adding nemo, arc-theme depends
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Fri, 11 Jan 2019 10:32:43 +0300
+
 wasta-xfce-bionic (0.9.7) bionic; urgency=medium
 
   * xfce4-redmond-lite: set monitor1 backgrounds in xfce4-display.xml
