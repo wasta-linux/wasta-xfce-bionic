@@ -8,7 +8,7 @@ Homepage: https://github.com/wasta-linux/wasta-xfce-bionic
 
 Package: wasta-xfce-bionic
 Architecture: all
-Depends: arc-theme, gnome-system-tools, ksuperkey, menulibre, mugshot, nemo, pavucontrol, sox, thunar-volman, wasta-core-bionic, wasta-multidesktop-bionic (> 1.1.9), wasta-papirus, xfce4-appfinder, xfce4-panel, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-whiskermenu-plugin, xfdesktop4, xfwm4, ${shlibs:Depends}, ${misc:Depends}
+Depends: arc-theme, gnome-system-tools, ksuperkey, menulibre, mugshot, nemo, ntp, pavucontrol, sox, thunar-volman, wasta-core-bionic, wasta-multidesktop-bionic (> 1.1.9), wasta-papirus, xfce4-appfinder, xfce4-panel, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-whiskermenu-plugin, xfdesktop4, xfwm4, ${shlibs:Depends}, ${misc:Depends}
 Recommends: bookletimposer, nemo-compare, nemo-image-converter
 Provides: xscreensaver
 Breaks: xscreensaver
