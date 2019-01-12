@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.9) bionic; urgency=medium
+
+  * relocate xfce4-panel.xml to match xubuntu
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Sat, 12 Jan 2019 12:35:13 +0300
+
 wasta-xfce-bionic (0.9.8) bionic; urgency=medium
 
   * debian/control: adding nemo, arc-theme depends
