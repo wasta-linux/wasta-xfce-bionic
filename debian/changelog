@@ -1,8 +1,9 @@
 wasta-xfce-bionic (0.9.9) bionic; urgency=medium
 
   * relocate xfce4-panel.xml to match xubuntu
+  * install-files/layouts: adding Wasta-Redmond.tar.bz2 to xfpanel-switch
 
- -- Rik Shaw <rikshaw76@gmail.com>  Sat, 12 Jan 2019 12:35:13 +0300
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 16 Jan 2019 08:55:44 +0300
 
 wasta-xfce-bionic (0.9.8) bionic; urgency=medium
 

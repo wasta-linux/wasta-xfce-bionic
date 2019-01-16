@@ -1,0 +1,9 @@
+#!/bin/bash
+# decrease volume 5%
+
+amixer -D pulse sset Master 5%-
+
+# play audio-volume-change sample:
+play /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga 
+
+exit 0

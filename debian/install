@@ -1,4 +1,5 @@
-install-files/autostart                     etc/xdg
-install-files/bin                           usr
-install-files/helpers                       usr/share/xfce4
-wasta-xfce                                  usr/share
+install-files/autostart                        etc/xdg
+install-files/bin                              usr
+install-files/helpers                          usr/share/xfce4
+install-files/layouts/Wasta-Redmond.tar.bz2    usr/share/xfpanel-switch/layouts
+wasta-xfce                                     usr/share
