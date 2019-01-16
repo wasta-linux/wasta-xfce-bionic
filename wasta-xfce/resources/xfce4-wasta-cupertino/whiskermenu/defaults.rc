@@ -1,0 +1,64 @@
+favorites=firefox.desktop,nemo.desktop,libreoffice-writer.desktop,wasta-backup.desktop,wasta-resources.desktop,xfce-settings-manager.desktop
+recent=
+button-title=Menu\ \ 
+button-icon=/usr/share/wasta-xfce/resources/wasta-menu.svg
+button-single-row=false
+show-button-title=true
+show-button-icon=true
+launcher-show-name=true
+launcher-show-description=true
+launcher-show-tooltip=true
+item-icon-size=2
+hover-switch-category=true
+category-icon-size=1
+load-hierarchy=false
+favorites-in-recent=true
+display-recent-default=false
+position-search-alternate=true
+position-commands-alternate=true
+position-categories-alternate=true
+menu-opacity=100
+command-settings=xfce4-settings-manager
+show-command-settings=true
+command-lockscreen=xflock4
+show-command-lockscreen=true
+command-switchuser=dm-tool switch-to-greeter
+show-command-switchuser=false
+command-logout=xfce4-session-logout
+show-command-logout=true
+command-menueditor=menulibre
+show-command-menueditor=true
+command-profile=mugshot
+show-command-profile=true
+search-actions=5
+
+[action0]
+name=Man Pages
+pattern=#
+command=exo-open --launch TerminalEmulator man %s
+regex=false
+
+[action1]
+name=Web Search
+pattern=?
+command=exo-open --launch WebBrowser https://duckduckgo.com/?q=%u
+regex=false
+
+[action2]
+name=Wikipedia
+pattern=!w
+command=exo-open --launch WebBrowser https://en.wikipedia.org/wiki/%u
+regex=false
+
+[action3]
+name=Run in Terminal
+pattern=!
+command=exo-open --launch TerminalEmulator %s
+regex=false
+
+[action4]
+name=Open URI
+pattern=^(file|http|https):\\/\\/(.*)$
+command=exo-open \\0
+regex=true
+

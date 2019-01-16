@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.10) bionic; urgency=medium
+
+  * initial Wasta-Cupertino layout option
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 16 Jan 2019 17:04:39 +0300
+
 wasta-xfce-bionic (0.9.9) bionic; urgency=medium
 
   * relocate xfce4-panel.xml to match xubuntu

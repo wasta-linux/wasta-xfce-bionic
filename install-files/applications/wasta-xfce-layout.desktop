@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=wasta [Layout]
-Comment=Change Cinnamon Default Layout
-Exec=wasta-layout
+Name=wasta [XFCE Layout]
+Comment=Change XFCE Default Layout
+Exec=wasta-xfce-layout
 Terminal=false
 Type=Application
 Icon=wasta-linux
