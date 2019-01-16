@@ -40,10 +40,10 @@ DIR=/usr/share/wasta-xfce
 if ! [ -e /etc/xdg/xdg-xfce/xfce4 ];
 then
     echo
-    echo "*** Setting xfce4-redmond-lite as default xfce layout"
+    echo "*** Setting xfce4-redmond as default xfce layout"
     echo
     mkdir -p /etc/xdg/xdg-xfce
-    ln -s $DIR/resources/xfce4-redmond-lite /etc/xdg/xdg-xfce/xfce4
+    ln -s $DIR/resources/xfce4-redmond /etc/xdg/xdg-xfce/xfce4
 fi
 
 # ------------------------------------------------------------------------------
