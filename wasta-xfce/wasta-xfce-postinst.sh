@@ -37,13 +37,13 @@ DIR=/usr/share/wasta-xfce
 # Setup default xfce layout
 # ------------------------------------------------------------------------------
 # use xfce4-redmond-lite if nothing already set
-if ! [ -e /etc/xdg/xdg-xfce/xfce4 ];
+if ! [ -d /etc/xdg/xdg-xfce/xfce4/xfconf ];
 then
     echo
     echo "*** Setting xfce4-wasta-default as default xfce layout"
     echo
     mkdir -p /etc/xdg/xdg-xfce
-    ln -s $DIR/resources/xfce4-wasta-default /etc/xdg/xdg-xfce/xfce4
+    ln -sf $DIR/resources/xfce4-wasta-default /etc/xdg/xdg-xfce/xfce4
 fi
 
 # ------------------------------------------------------------------------------
