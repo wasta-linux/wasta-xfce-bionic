@@ -1,8 +1,10 @@
 favorites=firefox.desktop,nemo.desktop,libreoffice-writer.desktop,wasta-backup.desktop,wasta-resources.desktop,xfce-settings-manager.desktop
 recent=
 button-title=<b>Menu</b>\ \ 
+button-icon='/usr/share/wasta-xfce/resources/wasta-menu.svg'
 button-single-row=false
 show-button-icon=true
+show-button-title=true
 launcher-show-name=true
 launcher-show-description=true
 launcher-show-tooltip=true
