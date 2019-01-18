@@ -35,7 +35,10 @@
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-1" type="string" value="whiskermenu"/>
+    <property name="plugin-1" type="string" value="whiskermenu">
+      <property name="show-button-title" type="bool" value="true"/>
+      <property name="button-icon" type="string" value="/usr/share/wasta-xfce/resources/wasta-menu.svg"/>
+    </property>
     <property name="plugin-2" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>

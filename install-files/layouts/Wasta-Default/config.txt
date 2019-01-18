@@ -16,13 +16,8 @@
 /panels/panel-1/size uint32 30
 /panels/panel-1/span-monitors false
 /plugins/plugin-1 'whiskermenu'
-/plugins/plugin-1/button-icon 'xfce4-panel-menu'
-/plugins/plugin-1/button-title 'Menu'
-/plugins/plugin-1/custom-menu false
-/plugins/plugin-1/show-button-title true
-/plugins/plugin-1/show-generic-names false
-/plugins/plugin-1/show-menu-icons true
-/plugins/plugin-1/show-tooltips false
+/plugins/plugin-1/button-icon '/usr/share/wasta-xfce/resources/wasta-menu.svg'
+/plugins/plugin-1/show-button-title false
 /plugins/plugin-2 'separator'
 /plugins/plugin-2/expand false
 /plugins/plugin-2/style uint32 0

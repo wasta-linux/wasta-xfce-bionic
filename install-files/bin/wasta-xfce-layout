@@ -39,6 +39,21 @@
 #
 # ==============================================================================
 
+# User level script:
+#   ??? SAVE LAUNCHERS including Plank > from schema ???
+#   ??? SAVE BACKGROUND ???
+#   xfce4-panel --quit
+#   killall xfconfd
+#   rm -r ~/.config/xfce4
+#   cp relevant xfce4 to ~/.config (???)
+#   set plank schema
+#   ??? Restore LAUNCHERS AND BG including PLANK ???
+#   xfce4-panel &
+
+# System level script:
+#   Replace /etc/xdg/xdg-xfce symlink to relevant xfce4 folder
+#   Put relevant Plank schemas in place (system level)
+
 # ------------------------------------------------------------------------------
 # Ensure script running as regular user
 # ------------------------------------------------------------------------------
