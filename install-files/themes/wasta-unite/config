@@ -1,0 +1,132 @@
+<theme name = "Wasta-Unite">
+<popup_style file_name="wasta-dbx.tar.gz" />
+<colors>
+	<color1 name="window list background"   default="#2F343F" opacity="80"  />
+	<color2 name="normal text"              default="#FFFFFF" opacity="100" />
+	<color3 name="active window text"       default="#FFFFFF" opacity="100" />
+	<color5 name="active + indicator color" default="#FFFFFF" opacity="100" />
+	<color6 name="launching color"          default="#5294E2" opacity="100" />
+	<color7 name="attention color"          default="#5294E2" opacity="100" />
+	<color8 name="minimized color"          default="#000000" opacity="30"  />
+</colors>
+<pixmaps>
+	<pixmap_from_file name="active" file="active.png" />
+	<pixmap_from_file name="aglow" file="aglow.png" />
+	<pixmap_from_file name="arow" file="arow.png" />
+	<pixmap_from_file name="bg" file="bg.png" />
+	<pixmap_from_file name="fg" file="fg.png" />
+	<pixmap_from_file name="glow" file="glow.png" />
+	<pixmap_from_file name="null" file="null.png" />
+	<pixmap_from_file name="rglow" file="rglow.png" />
+</pixmaps>
+<sets>
+	<set name="as"  left="90"    right="-90"  up="180"  down="0"    />
+	<set name="xo21" left="0"    right="0"    up="-14%" down="-14%" />
+	<set name="xo22" left="0"    right="0"    up="14%"  down="14%"  />
+	<set name="yo21" left="-14%" right="-14%" up="0"    down="0"    />
+	<set name="yo22" left="14%"  right="14%"  up="0"    down="0"    />
+	<set name="xo31" left="0"    right="0"    up="-23%" down="-23%" />
+	<set name="xo32" left="0"    right="0"    up="23%"  down="23%"  />
+	<set name="yo31" left="-23%" right="-23%" up="0"    down="0"    />
+	<set name="yo32" left="23%"  right="23%"  up="0"    down="0"    />
+	<set name="yona" left="-23%" right="-23%" up="0"    down="0"    />
+	<set name="xona" left="0"    right="0"    up="23%"  down="-23%" />
+</sets>
+<button_pixmap gap = "0" aspect_ratio="4/3" aspect_ratio_v="1/1" windows_cnt="3">
+	<get_icon size="-3" />
+	<correct_size />
+	<if type="blink">
+		<pixmap_from_self name="red_icon">
+			<colorize color="color7" />
+		</pixmap_from_self>
+		<composite bg="self" fg="red_icon" opacity="60"/>
+	</if>
+	<if type="active">
+		<pixmap name="active_arow">
+			<fill color="color5" opacity="100" />
+			<alpha_mask mask="active" />
+			<composite bg="self" fg="active" opacity="100" />
+		</pixmap>
+		<composite bg="self" fg="active_arow" angle="as" />
+	</if>
+	<if type="!launcher" >
+		<pixmap name="arow-c">
+			<fill color="color5" opacity="color5" />
+			<alpha_mask mask="arow" />
+			<composite bg="self" fg="arow" opacity="100" />
+		</pixmap>
+		<if windows="1">
+		<composite bg="self" fg="arow-c" angle="as" />
+		</if>
+		<if windows="2">
+		<composite bg="self" fg="arow-c" xoffset="xo21" yoffset="yo21" angle="as" />
+		<composite bg="self" fg="arow-c" xoffset="xo22" yoffset="yo22" angle="as" />
+		</if>
+		<if windows="3">
+		<composite bg="self" fg="arow-c" angle="as" />
+		<composite bg="self" fg="arow-c" xoffset="xo31" yoffset="yo31" angle="as" />
+		<composite bg="self" fg="arow-c" xoffset="xo32" yoffset="yo32" angle="as" />
+		</if>
+		<if type="some_minimized" >
+			<pixmap name="arow-m">
+				<fill color="color8" opacity="color8" />
+				<alpha_mask mask="arow" />
+				<composite bg="self" fg="arow" opacity="10" />
+			</pixmap>
+			<if windows="1">
+			<composite bg="self" fg="arow-m" angle="as" />
+			</if>
+			<if windows="2">
+			<composite bg="self" fg="arow-m" xoffset="xo21" yoffset="yo21" angle="as" />
+			<composite bg="self" fg="arow-c" xoffset="xo22" yoffset="yo22" angle="as" />
+			</if>
+			<if windows="3">
+			<composite bg="self" fg="arow-m" angle="as" />
+			<composite bg="self" fg="arow-c" xoffset="xo31" yoffset="yo31" angle="as" />
+			<composite bg="self" fg="arow-c" xoffset="xo32" yoffset="yo32" angle="as" />
+			</if>
+		</if>
+		<if type="all_minimized" >
+			<pixmap name="arow-m">
+				<fill color="color8" opacity="color8" />
+				<alpha_mask mask="arow" />
+				<composite bg="self" fg="arow" opacity="10" />
+			</pixmap>
+			<if windows="1">
+			<composite bg="self" fg="arow-m" angle="as" />
+			</if>
+			<if windows="2">
+			<composite bg="self" fg="arow-m" xoffset="xo21" yoffset="yo21" angle="as" />
+			<composite bg="self" fg="arow-m" xoffset="xo22" yoffset="yo22" angle="as" />
+			</if>
+			<if windows="3">
+			<composite bg="self" fg="arow-m" />
+			<composite bg="self" fg="arow-m" xoffset="xo31" yoffset="yo31" angle="as" />
+			<composite bg="self" fg="arow-m" xoffset="xo32" yoffset="yo32" angle="as" />
+			</if>
+		</if>
+	</if>
+	<if type="mouse_over">
+		<bright strength="15" />
+	</if>
+	<if type="blink">
+		<bright strength="15" />
+	</if>	
+	<if type="needs_attention">
+		<pixmap name="arow-a">
+			<fill color="color7" opacity="color7" />
+			<alpha_mask mask="active" />
+			<composite bg="self" fg="active" opacity="100" />
+		</pixmap>
+		<composite bg="self" fg="arow-a" yoffset="yona" xoffset="xona" angle="as" />
+	</if>
+	<if type="launching">
+	<pixmap name="arow-l">
+			<fill color="color6" opacity="color6" />
+			<alpha_mask mask="active" />
+			<composite bg="self" fg="active" opacity="100" />
+		</pixmap>
+		<composite bg="self" fg="arow-l"  angle="as" />
+	</if>
+</button_pixmap>
+</theme>
