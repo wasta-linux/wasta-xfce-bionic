@@ -9,8 +9,8 @@
       <property name="&lt;Primary&gt;Print" type="string" value="gnome-screenshot -c"/>
       <property name="&lt;Alt&gt;Print" type="string" value="gnome-screenshot -w"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Print" type="string" value="gnome-screenshot -w -c"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="gnome-terminal"/>
-      <property name="&lt;Super&gt;e" type="string" value="nemo"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="exo-open --launch TerminalEmulator"/>
+      <property name="&lt;Super&gt;e" type="string" value="exo-open --launch FileManager"/>
       <property name="XF86AudioLowerVolume" type="string" value="volume-down"/>
       <property name="XF86AudioMute" type="string" value="volume-mute"/>
       <property name="XF86AudioRaiseVolume" type="string" value="volume-up"/>
