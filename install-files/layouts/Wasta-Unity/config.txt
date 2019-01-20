@@ -96,7 +96,7 @@
 /plugins/plugin-22/expand false
 /plugins/plugin-22/style uint32 0
 /plugins/plugin-23 'whiskermenu'
-/plugins/plugin-23/button-icon '/usr/share/wasta-xfce/resources/launcher_bfb.png'
+/plugins/plugin-23/button-icon /usr/share/wasta-xfce/resources/launcher_bfb.png
 /plugins/plugin-23/show-button-title false
 /plugins/plugin-24 'showdesktop'
 /plugins/plugin-25 'separator'

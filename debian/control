@@ -11,7 +11,8 @@ Architecture: all
 Depends: arc-theme, gnome-system-tools, ksuperkey, light-locker, menulibre, mugshot, nemo, ntp, pavucontrol, sox, thunar-volman, wasta-core-bionic, wasta-multidesktop-bionic (> 1.1.9), wasta-papirus, xfce4-appmenu-plugin, xfce4-appfinder, xfce4-appmenu-plugin, xfce4-dockbarx-plugin, xfce4-panel, xfce4-power-manager, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-session, xfce4-statusnotifier-plugin, xfce4-whiskermenu-plugin, xfce4-windowck-plugin, xfdesktop4, xfpanel-switch, xfwm4, ${shlibs:Depends}, ${misc:Depends}
 Recommends: bookletimposer, nemo-compare, nemo-image-converter
 Description: Wasta-Linux XFCE Customization for 18.04 Bionic
- XFCE desktop setup for Wasta-Linux.  By default, the "redmond-lite" layout
- is configured as the system default.  In the future, a wasta-xfce-layout
- app will allow users to set different XFCE layouts as default for the
- current user and for the system.
+ XFCE desktop setup for Wasta-Linux.  Default layout in etc/xdg/xdg-xfce gives
+ a basic Windows-like experience.  The wasta-xfce-layout utility can be used
+ to choose other desktop layouts such as Wasta-Redmond7, Wasta-Cupertino, and
+ Wasta-Unity.  These additional layouts rely on the xfce4-dockbarx-plugin for
+ the xfce4-panel.

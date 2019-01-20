@@ -34,16 +34,18 @@ echo
 DIR=/usr/share/wasta-xfce
 
 # ------------------------------------------------------------------------------
-# Setup default xfce layout
+# Arc-Theme fixes so usable for windowck plugin
 # ------------------------------------------------------------------------------
-# use xfce4-redmond-lite if nothing already set
-if ! [ -d /etc/xdg/xdg-xfce/xfce4/xfconf ];
+if [ -e "/usr/share/themes/Arc-Darker" ];
 then
-    echo
-    echo "*** Setting xfce4-wasta-default as default xfce layout"
-    echo
-    mkdir -p /etc/xdg/xdg-xfce
-    ln -sf $DIR/resources/xfce4-wasta-default /etc/xdg/xdg-xfce/xfce4
+    if ! [ -e "/usr/share/themes/Arc-Darker/unity/close_focused_normal.png" ];
+    then
+        echo
+        echo "*** Making Arc-Darker theme compatible with windowck plugin"
+        echo
+        ln -s /usr/share/themes/Arc-Darker/unity/close_focused_normal.svg \
+            /usr/share/themes/Arc-Darker/unity/close_focused_normal.png
+    fi
 fi
 
 # ------------------------------------------------------------------------------

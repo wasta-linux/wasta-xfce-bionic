@@ -1,9 +1,10 @@
 wasta-xfce-bionic (0.9.10) bionic; urgency=medium
 
-  * initial Wasta-Cupertino layout option
-  * initial Wasta-Unity layout option
+  * initial Wasta-Cupertino, Wasta-Unity, and Wasta-Redmond7 layouts
+  * dockbarx theme customizations
+  * initial wasta-xfce-layout utility
 
- -- Rik Shaw <rikshaw76@gmail.com>  Wed, 16 Jan 2019 17:04:39 +0300
+ -- Rik Shaw <rikshaw76@gmail.com>  Sun, 20 Jan 2019 15:24:02 +0300
 
 wasta-xfce-bionic (0.9.9) bionic; urgency=medium
 

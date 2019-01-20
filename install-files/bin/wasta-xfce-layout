@@ -3,56 +3,17 @@
 # ==============================================================================
 # wasta-xfce-layout
 #
-# This script can be run at any time to "toggle" cinnamon default settings
-#   to provide different layout defaults for the system
+# This script can be run at any time to "toggle" XFCE settings
+#   to provide different layouts
 #
-# enabled-applets wasta numbers (will show as #.json in user's ~/.cinnamon/configs/applet-name/ folder):
-#   menu@cinnamon.org:101
-#   show-desktop@cinnamon.org:102
-#   panel-launchers@cinnamon.org:103
-#   scale@cinnamon.org:104
-#   window-list@cinnamon.org:105
-#   removable-drives@cinnamon.org:106
-#   inhibit@cinnamon.org:107
-#   systray@cinnamon.org:108
-#   bluetooth@cinnamon.org:109
-#   network@cinnamon.org:110
-#   sound@cinnamon.org:111
-#   power@cinnamon.org:112
-#   calendar@simonwiles.net:113
-#   windows-quick-list@cinnamon.org:114
-#   IcingTaskManager@json:115
-#   user@cinnamon.org:116
-#   trash@cinnamon.org:117
-#   calendar@cinnamon.org:118
-#   notifications@cinnamon.org:119
-#   
-#   2017-12-24 rik: initial script
-#   2018-01-18 rik: default: remove calendar@cinnamon.org so will be re-created
-#       with defaults
-#       - save and restore worldclocks from calendar@simonwiles.net
-#   2018-01-20 rik: resetting all "panels" items that could have multiple
-#       panels.  Without this, "cinnamon-settings panel" was crashing.
-#   2018-01-20 rik: change cupertino to have shutdown menu on right side
-#   2018-05-20 rik: UpdateITMPinned adjusted for Cinnamon 3.8 schema location
-#   2018-05-22 rik: resetting button-layout for window controls
+# plugin numbers:
+#   whiskermenu:
+#       Unity: 23
+#       Others: 1
+#
+#   2019-01-18 rik: initial script
 #
 # ==============================================================================
-
-# User level script:
-#   ??? SAVE LAUNCHERS including Plank > from schema ???
-#   ??? SAVE BACKGROUND ???
-#   xfce4-panel --quit
-#   killall xfconfd
-#   rm -r ~/.config/xfce4
-#   cp relevant xfce4 to ~/.config (???)
-#   set plank schema
-#   ??? Restore LAUNCHERS AND BG including PLANK ???
-#   xfce4-panel &
-
-# System level script:
-#   Replace /etc/xdg/xdg-xfce symlink to relevant xfce4 folder
-#   Put relevant Plank schemas in place (system level)
 
 # ------------------------------------------------------------------------------
 # Ensure script running as regular user
@@ -65,6 +26,27 @@ then
     exit 1
 fi
 
+AUTO=""
+MSG=""
+CHOICE=""
+if [ "$1" ];
+then
+    echo
+    echo "Layout choice passed as parameter 1: $1"
+    echo
+    CHOICE="$1"
+    AUTO=YES
+fi
+
+COMP=""
+if [ "$2" ];
+then
+    echo
+    echo "Compositing choice passed as parameter 2: $2"
+    echo
+    COMP="$2"
+fi
+
 # ------------------------------------------------------------------------------
 # Setup
 # ------------------------------------------------------------------------------
@@ -74,61 +56,22 @@ DIR=/usr/share/wasta-xfce
 # Main Processing
 # ------------------------------------------------------------------------------
 
-# SAVE current itm OR panel-launcher apps to restore later....
-SAVED_LAUNCHERS=""
-
-PL_FILE=/home/$USER/.cinnamon/configs/panel-launchers@cinnamon.org/103.json
-if [ -e "$PL_FILE" ];
+# prompt user
+if ! [ "$CHOICE" ];
 then
-    PL_LAUNCHERS=$(jq -c '.["launcherList"].value' < $PL_FILE)
-fi
-
-ITM_FILE=/home/$USER/.cinnamon/configs/IcingTaskManager@json/115.json
-if [ -e "$ITM_FILE" ];
-then
-    ITM_PINNED_APPS=$(jq -c '.["pinned-apps"].value' < $ITM_FILE)
-fi
-
-if [ "$PL_FILE" -nt "$ITM_FILE" ];
-then
-    echo "*** PL newest"
-    SAVED_LAUNCHERS=$PL_LAUNCHERS
-    echo "*** SAVED_LAUNCHERS set to: $PL_LAUNCHERS"
-elif [ "$ITM_FILE" -nt "$PL_FILE" ];
-then
-    echo "*** ITM newest"
-    SAVED_LAUNCHERS=$ITM_PINNED_APPS
-    echo "*** SAVED_LAUNCHERS set to: $ITM_PINNED_APPS"
-else
-    echo "*** PL and ITM don't exist..... both equal implying only at default"
-fi
-
-echo "*** SAVED_LAUNCHERS final value: $SAVED_LAUNCHERS"
-
-# SAVE current world clocks
-SAVED_WC=""
-
-WC_FILE=/home/$USER/.cinnamon/configs/calendar@simonwiles.net/113.json
-if [ -e "$WC_FILE" ];
-then
-    SAVED_WC=$(jq -c '.["worldclocks"].value' < $WC_FILE)
-    #SAVED_WC=$(echo "$TEMP_WC" | sed "s@\ @'\\\ '@g")
-    echo "*** SAVED_WC set to: $SAVED_WC"
-fi
-
-# prompt user    
-CHOICE=$(zenity --list --title="wasta [Layout]" \
-    --window-icon=/usr/share/icons/hicolor/64x64/apps/wasta-linux.png \
-    --height=300 --text \
+    CHOICE=$(zenity --list --title="wasta [Layout]" \
+        --window-icon=/usr/share/icons/hicolor/64x64/apps/wasta-linux.png \
+        --height=300 --text \
 "This utility <i><b>changes</b></i> the layout of the <i>panel</i> (taskbar) and other
-items of the Cinnamon Desktop Interface.
+items of the XFCE Desktop Interface.
 
 <b><i>Choose your preferred layout:</i></b>" --radiolist \
-    --column "" --column "Layout" --column "Description" \
-    TRUE        default           "Default Cinnamon layout" \
-    FALSE       redmond7          "Windows 7 inspired layout" \
-    FALSE       cupertino         "MacOS/OSX insipired layout" \
-    FALSE       unity             "Ubuntu Unity inspired layout")
+        --column "" --column "Layout" --column "Description" \
+        TRUE        default           "Wasta-Default layout" \
+        FALSE       redmond7          "Windows 7 inspired layout" \
+        FALSE       cupertino         "MacOS/OSX insipired layout" \
+        FALSE       unity             "Ubuntu Unity inspired layout")
+fi
 
 if [ "$CHOICE" == "" ];
 then
@@ -139,204 +82,150 @@ then
     exit 0
 fi
 
-pkexec /usr/bin/wasta-layout-system $CHOICE
+# Make initial dockbarx settings changes (compositing later...)
+gconftool-2 -s /apps/dockbarx/theme -t string "Wasta-Unite"
+gconftool-2 -s /apps/dockbarx/window_title_width -t integer "180"
+gconftool-2 -s /apps/dockbarx/show_only_current_desktop -t boolean "true"
+
+sleep 1
+
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color1 -t string "#2F343F"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color1_alpha -t integer "230"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color2 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color3 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color5 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color6 -t string "#5294E2"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color7 -t string "#5294E2"
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/popup_style_file -t string dbx.tar.gz
+
+DBX_LAUNCHERS=$(gconftool-2 -g /apps/dockbarx/launchers)
+
+if [ "$DBX_LAUNCHERS" == "[]" ] || [ "$DBX_LAUNCHERS" == "" ];
+then
+    echo
+    echo "Setting default dockbarx launchers"
+    echo
+    gconftool-2 -s /apps/dockbarx/launchers -t list --list-type=string "[firefox;/usr/share/applications/firefox.desktop,nemo;/usr/share/applications/nemo.desktop,libreoffice-writer;/usr/share/applications/libreoffice-writer.desktop,wasta-backup;/usr/share/applications/wasta-backup.desktop,wasta-resources;/usr/share/applications/wasta-resources.desktop]"
+fi
+
+case "$CHOICE" in
+"default")
+    xfconf-query -c xfwm4 -p /general/button_layout -s "O|HMC"
+    xfconf-query -c xfwm4 -p /general/titleless_maximize -s false
+    xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Default.tar.bz2
+;;
+"redmond7")
+    xfconf-query -c xfwm4 -p /general/button_layout -s "O|HMC"
+    xfconf-query -c xfwm4 -p /general/titleless_maximize -s false
+    xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Redmond7.tar.bz2
+;;
+"unity")
+    xfconf-query -c xfwm4 -p /general/button_layout -s "CMH|O"
+    xfconf-query -c xfwm4 -p /general/titleless_maximize -s true
+    xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Unity.tar.bz2
+;;
+"cupertino")
+    xfconf-query -c xfwm4 -p /general/button_layout -s "CMH|O"
+    xfconf-query -c xfwm4 -p /general/titleless_maximize -s true
+    xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Cupertino.tar.bz2
+;;
+*)
+    #do nothing
+;;
+esac
 RETURN=$?
 if [ "$RETURN" != "0" ];
 then
-    # didn't return clean from wasta-layout-system: get outta here!
-    exit 1
+    MSG+="Layout $CHOICE <b>NOT APPLIED</b>\n\n"
+else
+    MSG+="Layout $CHOICE <b>APPLIED</b>\n\n"
 fi
 
-# all layouts: stop plank and remove any user-level plank autostart:
-#   wasta-layout-system cupertino will enable correctly at system level
-rm -f /home/$USER/.config/autostart/plank-wasta-layout.desktop
+# put in non-compositing prompt
+# prompt user
+if ! [ "$COMP" ];
+then
+    COMP=$(zenity --list --title="wasta [Layout]" \
+        --window-icon=/usr/share/icons/hicolor/64x64/apps/wasta-linux.png \
+        --height=300 --text \
+"<i><b>Compositing</b></i> improves usability by enabling shadows
+around windows. However, compositing also increases
+the system resources used by the machine.
 
-case "$CHOICE" in
+<b><i>Do you want to ENABLE compositing?</i></b>" --radiolist \
+        --column "" --column "Enable" --column "Description" \
+        TRUE        yes               "ENABLE compositing" \
+        FALSE       no                "DISABLE compositing")
+fi
+
+if [ "$COMP" == "" ];
+then
+    # EXIT: no layout selected
+    echo
+    echo "*** no compositing selected: exiting..."
+    echo
+    exit 0
+fi
+
+DBX_PLUGIN=""
+DBX_PLUGIN=$(xfconf-query -c xfce4-panel -p /plugins -lv | grep dockbarx \
+    | sed -e 's@\/plugins\/plugin-\([0-9]*\).*@\1@')
+
+case "$COMP" in
+"yes")
+    MSG+="Enabling compositing...\n\n"
+    if [ "$DBX_PLUGIN" ];
+    then
+        echo
+        echo "Dockbarx plugin number: $DBX_PLUGIN"
+        echo
+        # mode 2: blend with panel
+        xfconf-query -c xfce4-panel -p /plugins/plugin-$DBX_PLUGIN/mode -s 2
+    fi
+    xfconf-query -c xfwm4 -p /general/use_compositing -s true
     
-"default")
-    # menu@cinnamon.org:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/menu@cinnamon.org
-    rm -rf /home/$USER/.cinnamon/configs/menu@cinnamon.org
-
-    # calendar@cinnamon.org:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/calendar@cinnamon.org
-    rm -rf /home/$USER/.cinnamon/configs/calendar@cinnamon.org
-
-    # if SAVED_LAUNCHERS set panel-launchers
-    if [ "$SAVED_LAUNCHERS" ];
+;;
+"no")
+    MSG+="Disabling compositing...\n\n"
+    if [ "$DBX_PLUGIN" ];
     then
-        DEFAULT_CONFIG=/usr/share/cinnamon/applets/panel-launchers@cinnamon.org/settings-schema.json
-        JSON_DIR=/home/$USER/.cinnamon/configs/panel-launchers@cinnamon.org
-        # NOTE: #.json has to match enabled-applets number!!
-        JSON_FILE=$JSON_DIR/103.json
-
-        if ! [ -e "$JSON_FILE" ];
-        then
-            echo "copying in default json config: $DEFAULT_CONFIG"
-            mkdir -p $JSON_DIR 
-            cp $DEFAULT_CONFIG $JSON_FILE
-        fi
-
-        #update saved launchers
-        echo "updating JSON_FILE: $JSON_FILE"
-        #jq can't do "sed -i" inplace update, so need to re-create file, then
-        # update ownership (in case run as root)
-        NEW_FILE=$(jq '.["launcherList"].value='"$SAVED_LAUNCHERS" < $JSON_FILE)
-        echo "$NEW_FILE" > $JSON_FILE
+        echo
+        echo "Dockbarx plugin number: $DBX_PLUGIN"
+        echo
+        # mode 0: solid color
+        xfconf-query -c xfce4-panel -p /plugins/plugin-$DBX_PLUGIN/mode -s 0
     fi
+    xfconf-query -c xfwm4 -p /general/use_compositing -s false
 ;;
-        
-"redmond7")
-    # menu@cinnamon.org:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/menu@cinnamon.org
-    rm -rf /home/$USER/.cinnamon/configs/menu@cinnamon.org
-
-    # IcingTaskManager@json:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/IcingTaskManager@json
-    rm -rf /home/$USER/.cinnamon/configs/IcingTaskManager@json
-
-    # calendar@simonwiles.net:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/calendar@simonwiles.net
-    rm -rf /home/$USER/.cinnamon/configs/calendar@simonwiles.net
-
-    # if SAVED_LAUNCHERS set pinned-apps
-    updateITMPinned
-
-    # if SAVED_WC set worldclocks
-    updateWorldClocks
-;;
-
-"unity")
-    # menu@cinnamon.org:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/menu@cinnamon.org
-    rm -rf /home/$USER/.cinnamon/configs/menu@cinnamon.org
-
-    # IcingTaskManager@json:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/IcingTaskManager@json
-    rm -rf /home/$USER/.cinnamon/configs/IcingTaskManager@json
-
-    # calendar@simonwiles.net:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/calendar@simonwiles.net
-    rm -rf /home/$USER/.cinnamon/configs/calendar@simonwiles.net
-
-    # transparent-panels@germanfr
-    #   - remove any local extension and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/extensions/transparent-panels@germanfr
-    rm -rf /home/$USER/.cinnamon/configs/transparent-panels@germanfr
-
-    # if SAVED_LAUNCHERS set pinned-apps
-    updateITMPinned
-
-    # if SAVED_WC set worldclocks
-    updateWorldClocks
-;;
-
-"cupertino")
-    # menu@cinnamon.org:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/menu@cinnamon.org
-    rm -rf /home/$USER/.cinnamon/configs/menu@cinnamon.org
-
-    # calendar@simonwiles.net:
-    #   - remove any local applet and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/applets/calendar@simonwiles.net
-    rm -rf /home/$USER/.cinnamon/configs/calendar@simonwiles.net
-
-    # transparent-panels@germanfr
-    #   - remove any local extension and configs (will be re-created from defaults)
-    rm -rf /home/$USER/.local/share/cinnamon/extensions/transparent-panels@germanfr
-    rm -rf /home/$USER/.cinnamon/configs/transparent-panels@germanfr
-
-    PLANK_FOLDER=/home/$USER/.config/plank/dock1/launchers
-    if ! [ -e "$PLANK_FOLDER" ];
-    then
-        echo "creating default plank launcher folder"
-        mkdir -p $PLANK_FOLDER
-        rsync -av $DIR/resources/launchers/ $PLANK_FOLDER/
-        sleep 1 
-    fi
-
-    # reset keys associated with plank
-    gsettings reset net.launchpad.plank.dock.settings:/ hide-mode
-    gsettings reset net.launchpad.plank.dock.settings:/ show-dock-item
-    gsettings reset net.launchpad.plank.dock.settings:/ theme
-    gsettings reset net.launchpad.plank.dock.settings:/ zoom-enabled
-    gsettings reset net.launchpad.plank.dock.settings:/ zoom-percent
-        
-    # start Plank
-    nohup plank &> /dev/null &
-
-    # if SAVED_WC set worldclocks
-    updateWorldClocks
-;;
-
 *)
-;;
     #do nothing
+;;
 esac
 
-
-if [ $RETURN -ne 0 ];
+RETURN=$?
+if [ "$RETURN" != "0" ];
 then
-    MSG="$CHOICE Layout choice <b>NOT APPLIED</b>\n\n"
+    MSG+="Compositing option <b>NOT APPLIED</b>\n\n"
 else
-    MSG="$CHOICE layout <b>APPLIED</b>\n\n"
+    MSG+="Compositing option <b>APPLIED</b>\n\n"
 fi
-
-echo
-echo " *** restarting Cinnamon ***"
-echo
-sleep 1s
-
-MSG+="Restarting Cinnamon to Apply Changes\n\n"
-
-# need to reset keys associated with panel layouts
-gsettings reset org.cinnamon enabled-applets
-gsettings reset org.cinnamon enabled-extensions
-gsettings reset org.cinnamon.desktop.wm.preferences button-layout
-# all "panels" items need reset since number of panels could have changed
-gsettings reset org.cinnamon panels-autohide
-gsettings reset org.cinnamon panels-enabled
-gsettings reset org.cinnamon panels-height
-gsettings reset org.cinnamon panels-hide-delay
-gsettings reset org.cinnamon panels-resizable
-gsettings reset org.cinnamon panels-scale-text-icons
-gsettings reset org.cinnamon panels-show-delay
-
-# restart cinnamon
-nohup cinnamon --replace &> /dev/null &
-
-# unity needs the panel-height reset again: maybe because before the replace
-#   it was not active?  POSSIBLY want to do all the resetting here instead
-#   of before?
-gsettings reset org.cinnamon panels-height
-
-# give a few seconds for Cinnamon to finish restarting
-sleep 3s
-
-echo
-echo " *** Cinnamon restarted ***"
-echo
-
-MSG+="Cinnamon Restarted Successfully\n\n"
-MSG+="<b>Please reboot your computer if you have any trouble</b>\n\n"
 
 # ------------------------------------------------------------------------------
 # Finished
 # ------------------------------------------------------------------------------
+MSG+="<b>Finished</b>"
 
 # prompt user
-zenity --info --title "wasta [Layout]: Finished" --no-wrap --height=150 --width=450 \
-    --window-icon=/usr/share/icons/hicolor/64x64/apps/wasta-linux.png \
-    --text="$MSG"
+if [ "$AUTO" == "" ];
+then
+    zenity --info --title "wasta [Layout]: Finished" --no-wrap --height=150 --width=300 \
+        --window-icon=/usr/share/icons/hicolor/64x64/apps/wasta-linux.png \
+        --text="$MSG"
+fi
+
+echo
+echo "Output:"
+printf "$MSG"
+echo
 
 exit 0
-
