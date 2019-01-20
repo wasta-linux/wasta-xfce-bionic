@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wasta [Layout]
+Name=wasta [Layout]: xfce
 Comment=Change XFCE Desktop Layout
 Exec=wasta-xfce-layout
 Terminal=false
