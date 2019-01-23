@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.11) bionic; urgency=medium
+
+  * xdg-xfce: disable desktop tooltips
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 23 Jan 2019 12:41:00 +0300
+
 wasta-xfce-bionic (0.9.10) bionic; urgency=medium
 
   * initial Wasta-Cupertino, Wasta-Unity, and Wasta-Redmond7 layouts

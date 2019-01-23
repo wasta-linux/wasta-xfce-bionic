@@ -35,6 +35,8 @@
       <property name="show-filesystem" type="bool" value="false"/>
       <property name="show-trash" type="bool" value="false"/>
     </property>
+    <property name="show-tooltips" type="bool" value="false"/>
+    <property name="tooltip-size" type="double" value="64.000000"/>
   </property>
   <property name="desktop-menu" type="empty">
     <property name="show" type="bool" value="false"/>
