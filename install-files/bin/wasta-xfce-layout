@@ -120,6 +120,8 @@ case "$CHOICE" in
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Redmond7.tar.bz2
 ;;
 "unity")
+    #xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s true
+    #xfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true
     xfconf-query -c xfwm4 -p /general/button_layout -s "CMH|O"
     xfconf-query -c xfwm4 -p /general/titleless_maximize -s true
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Unity.tar.bz2
