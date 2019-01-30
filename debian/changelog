@@ -1,3 +1,11 @@
+wasta-xfce-bionic (0.9.13) bionic; urgency=medium
+
+  * install-files/bin: remove volume adjustment scripts
+  * install-files/xdg-xfce: remove volume adjustment shortcuts
+  * wasta-xfce/resources: adjust wasta-menu.svg size
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 30 Jan 2019 11:38:53 +0300
+
 wasta-xfce-bionic (0.9.12) bionic; urgency=medium
 
   * debian/control: adding xfce4-notifyd to depends

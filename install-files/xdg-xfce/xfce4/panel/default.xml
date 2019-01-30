@@ -90,7 +90,6 @@
       <property name="size-max" type="uint" value="22"/>
     </property>
     <property name="plugin-12" type="string" value="statusnotifier">
-      <property name="icon-size" type="uint" value="22"/>
       <property name="menu-is-primary" type="bool" value="true"/>
       <property name="show-frame" type="bool" value="false"/>
       <property name="single-row" type="bool" value="true"/>
