@@ -3,6 +3,7 @@ install-files/autostart            etc/xdg
 install-files/bin                  usr
 install-files/helpers              usr/share/xfce4
 install-files/layouts              usr/share/xfpanel-switch
+install-files/schemas              usr/share/glib-2.0
 install-files/themes               usr/share/dockbarx
 install-files/xdg-xfce             etc/xdg
 wasta-xfce                         usr/share

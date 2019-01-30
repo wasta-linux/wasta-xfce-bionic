@@ -8,6 +8,7 @@
 #   only intended to be run at package installation.
 #
 # 2018-12-20 rik: initial script
+# 2019-01-30 rik: adding gschema compile (for light locker)
 #
 # ==============================================================================
 
@@ -47,6 +48,20 @@ then
             /usr/share/themes/Arc-Darker/unity/close_focused_normal.png
     fi
 fi
+
+# ------------------------------------------------------------------------------
+# Dconf / Gsettings Default Value adjustments
+# ------------------------------------------------------------------------------
+# Values in /usr/share/glib-2.0/schemas/z_12_wasta-xfce.gschema.override
+#   will override Ubuntu defaults.
+# Below command compiles them to be the defaults
+echo
+echo "*** wasta-xfce: updating dconf / gsettings default values"
+echo
+
+# MAIN System schemas: we have placed our override file in this directory
+# Sending any "error" to null (if key not found don't want to worry user)
+glib-compile-schemas /usr/share/glib-2.0/schemas/ # > /dev/null 2>&1 || true;
 
 # ------------------------------------------------------------------------------
 # Configure Qt apps to use GTK+ theme by default

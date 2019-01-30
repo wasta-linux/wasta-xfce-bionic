@@ -1,3 +1,10 @@
+wasta-xfce-bionic (0.9.15) bionic; urgency=medium
+
+  * install-files: add schemas to set light-locker default settings
+  * postinst: compile schemas
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 30 Jan 2019 20:27:09 +0300
+
 wasta-xfce-bionic (0.9.14) bionic; urgency=medium
 
   * debian/control: adding gconf2 dependency (needed by wasta-xfce-layout)
