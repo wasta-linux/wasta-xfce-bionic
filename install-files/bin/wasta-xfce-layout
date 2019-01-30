@@ -12,6 +12,7 @@
 #       Others: 1
 #
 #   2019-01-18 rik: initial script
+#   2019-01-30 rik: cupertino and unity need borderless_maximize
 #
 # ==============================================================================
 
@@ -111,11 +112,13 @@ fi
 case "$CHOICE" in
 "default")
     xfconf-query -c xfwm4 -p /general/button_layout -s "O|HMC"
+    xfconf-query -c xfwm4 -p /general/borderless_maximize -s false
     xfconf-query -c xfwm4 -p /general/titleless_maximize -s false
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Default.tar.bz2
 ;;
 "redmond7")
     xfconf-query -c xfwm4 -p /general/button_layout -s "O|HMC"
+    xfconf-query -c xfwm4 -p /general/borderless_maximize -s false
     xfconf-query -c xfwm4 -p /general/titleless_maximize -s false
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Redmond7.tar.bz2
 ;;
@@ -123,11 +126,13 @@ case "$CHOICE" in
     #xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s true
     #xfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true
     xfconf-query -c xfwm4 -p /general/button_layout -s "CMH|O"
+    xfconf-query -c xfwm4 -p /general/borderless_maximize -s true
     xfconf-query -c xfwm4 -p /general/titleless_maximize -s true
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Unity.tar.bz2
 ;;
 "cupertino")
     xfconf-query -c xfwm4 -p /general/button_layout -s "CMH|O"
+    xfconf-query -c xfwm4 -p /general/borderless_maximize -s true
     xfconf-query -c xfwm4 -p /general/titleless_maximize -s true
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Cupertino.tar.bz2
 ;;

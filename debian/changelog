@@ -1,3 +1,9 @@
+wasta-xfce-bionic (0.9.16) bionic; urgency=medium
+
+  * wasta-xfce-layout: borderless_maximize for cupertino and unity
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 30 Jan 2019 21:43:08 +0300
+
 wasta-xfce-bionic (0.9.15) bionic; urgency=medium
 
   * install-files: add schemas to set light-locker default settings
