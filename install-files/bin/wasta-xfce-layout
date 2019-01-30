@@ -96,7 +96,7 @@ gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color3 -t string "#FFFFFF"
 gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color5 -t string "#FFFFFF"
 gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color6 -t string "#5294E2"
 gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color7 -t string "#5294E2"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/popup_style_file -t string dbx.tar.gz
+gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/popup_style_file -t string wasta-dbx.tar.gz
 
 DBX_LAUNCHERS=$(gconftool-2 -g /apps/dockbarx/launchers)
 
