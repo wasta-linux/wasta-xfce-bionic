@@ -1,3 +1,12 @@
+wasta-xfce-bionic (0.9.17) bionic; urgency=medium
+
+  * install-files/actions: added xfce desktop settings and
+    set background nemo actions
+  * install-files/layouts/Wasta-Unity: shrunk side panel to 38 px
+  * schemas: disabled light-locker for screensaver
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Wed, 06 Feb 2019 12:08:54 +0300
+
 wasta-xfce-bionic (0.9.16) bionic; urgency=medium
 
   * wasta-xfce-layout: borderless_maximize for cupertino and unity
