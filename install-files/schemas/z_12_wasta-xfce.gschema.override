@@ -16,3 +16,6 @@
 [apps.light-locker]
 lock-after-screensaver = 0
 lock-on-suspend = false
+
+[org.nemo.desktop]
+ignored-desktop-handlers = ['conky', 'xfdesktop']
