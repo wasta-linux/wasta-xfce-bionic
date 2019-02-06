@@ -36,6 +36,7 @@
       <property name="show-trash" type="bool" value="false"/>
     </property>
     <property name="show-tooltips" type="bool" value="false"/>
+    <property name="style" type="int" value="2"/>
     <property name="tooltip-size" type="double" value="64.000000"/>
   </property>
   <property name="desktop-menu" type="empty">

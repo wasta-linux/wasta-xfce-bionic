@@ -16,3 +16,6 @@ Description: Wasta-Linux XFCE Customization for 18.04 Bionic
  to choose other desktop layouts such as Wasta-Redmond7, Wasta-Cupertino, and
  Wasta-Unity.  These additional layouts rely on the xfce4-dockbarx-plugin for
  the xfce4-panel.
+ .
+ Nemo is set as the default file manager and will draw desktop icons due
+ to wasta-multidesktop settings.
