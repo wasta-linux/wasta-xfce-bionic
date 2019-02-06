@@ -40,7 +40,7 @@ DIR=/usr/share/wasta-xfce
 if ! [ -e "/etc/xdg/autostart/nemo-autostart.desktop" ];
 then
     ln -s /usr/share/applications/nemo-autostart.desktop 
-        /etc/xdg/autostart/nemo-autostart.desktop
+        /etc/xdg/autostart/
 fi
 
 # ------------------------------------------------------------------------------
