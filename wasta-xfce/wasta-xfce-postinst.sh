@@ -35,6 +35,15 @@ echo
 DIR=/usr/share/wasta-xfce
 
 # ------------------------------------------------------------------------------
+# Make sure nemo-desktop will autostart
+# ------------------------------------------------------------------------------
+if ! [ -e "/etc/xdg/autostart/nemo-autostart.desktop" ];
+then
+    ln -s /usr/share/applications/nemo-autostart.desktop 
+        /etc/xdg/autostart/nemo-autostart.desktop
+fi
+
+# ------------------------------------------------------------------------------
 # Arc-Theme fixes so usable for windowck plugin
 # ------------------------------------------------------------------------------
 if [ -e "/usr/share/themes/Arc-Darker" ];
