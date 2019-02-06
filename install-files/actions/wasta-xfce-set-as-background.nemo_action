@@ -8,7 +8,7 @@ Exec=xfce4-set-wallpaper "%F"
 
 Selection=s
 
-Icon-Name=cs-backgrounds-symbolic
+Icon-Name=user-desktop-symbolic
 
 Mimetypes=image/*;
 
