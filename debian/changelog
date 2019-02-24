@@ -1,3 +1,9 @@
+wasta-xfce-bionic (1.0.1) bionic; urgency=medium
+
+  * debian/control: syntax fix
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Sun, 24 Feb 2019 20:27:08 +0300
+
 wasta-xfce-bionic (1.0.0) bionic; urgency=medium
 
   * debian/control: adding thunar-volman to automount usb drives
