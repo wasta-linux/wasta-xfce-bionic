@@ -1,0 +1,93 @@
+#!/bin/bash
+
+# ==============================================================================
+# wasta-xfce-initialize
+#
+# Setup user-level xfce setup (needed if installed over xubuntu, for example)
+#
+#   2019-03-16 rik: initial script
+#
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Ensure script running as regular user
+# ------------------------------------------------------------------------------
+if [ $(id -u) -eq 0 ];
+then
+    echo "This script should NOT be run with SUDO!  Must be regular user!!"
+    echo "Exiting...."
+    sleep 5s
+    exit 1
+fi
+
+AUTO=""
+MSG=""
+CHOICE=""
+if [ "$1" ];
+then
+    echo
+    echo "Layout choice passed as parameter 1: $1"
+    echo
+    CHOICE="$1"
+    AUTO=YES
+fi
+
+COMP=""
+if [ "$2" ];
+then
+    echo
+    echo "Compositing choice passed as parameter 2: $2"
+    echo
+    COMP="$2"
+fi
+
+# ------------------------------------------------------------------------------
+# Setup
+# ------------------------------------------------------------------------------
+# if 'auto' parameter passed, run non-interactively
+if [ "$1" == "auto" ];
+then
+    AUTO="auto"
+else
+    AUTO=""
+fi
+
+echo
+echo "========================================================================="
+echo "=== Wasta XFCE Initialize ==============================================="
+echo "========================================================================="
+echo
+echo "This script will initialize XFCE settings for the current user to"
+echo "Wasta defaults. This is needed if the user was created before"
+echo "wasta-xfce was installed."
+echo
+
+if ! [ "$AUTO" ];
+then
+    echo "Close this window if you do not want to run this script."
+    echo
+    read -p "Press <Enter> to continue..."
+fi
+
+DIR=/usr/share/wasta-xfce
+
+# ------------------------------------------------------------------------------
+# Main Processing
+# ------------------------------------------------------------------------------
+xfce4-panel -q
+sleep 1
+killall xfconfd
+sleep 1
+rm -r /home/$USER/.config/xfce4/
+sleep 1
+xfce4-panel &
+
+# ------------------------------------------------------------------------------
+# Finished
+# ------------------------------------------------------------------------------
+printf "\n\n\n\n\n\n"
+echo "========================================================================="
+echo "=== Script Finished ====================================================="
+echo "========================================================================="
+
+exit 0

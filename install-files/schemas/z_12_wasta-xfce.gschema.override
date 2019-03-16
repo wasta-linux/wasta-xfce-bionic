@@ -10,6 +10,7 @@
 #       glib-compile-schemas /usr/share/glib-2.0/schemas/
 #
 #   2019-01-30 rik: initial bionic settings
+#   2019-03-16 rik: adding additional nemo-desktop defaults
 #
 # ==============================================================================
 
@@ -18,4 +19,7 @@ lock-after-screensaver = 0
 lock-on-suspend = false
 
 [org.nemo.desktop]
+desktop-layout = 'true::false'
+font = 'Ubuntu 10'
 ignored-desktop-handlers = ['conky', 'xfdesktop']
+volumes-visible = true

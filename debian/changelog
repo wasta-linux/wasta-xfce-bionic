@@ -1,3 +1,10 @@
+wasta-xfce-bionic (1.0.2) bionic; urgency=medium
+
+  * xdg-xfce: revert default terminal to xfce4-terminal
+  * install-files/bin/wasta-xfce-initialize: new script
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Sat, 16 Mar 2019 16:58:14 +0300
+
 wasta-xfce-bionic (1.0.1) bionic; urgency=medium
 
   * debian/control: syntax fix
