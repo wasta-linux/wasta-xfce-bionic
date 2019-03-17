@@ -1,3 +1,9 @@
+wasta-xfce-bionic (1.0.3) bionic; urgency=medium
+
+  * removing wasta-xfce-initialize: covered by wasta-reset
+
+ -- Rik Shaw <rikshaw76@gmail.com>  Sun, 17 Mar 2019 11:45:47 +0300
+
 wasta-xfce-bionic (1.0.2) bionic; urgency=medium
 
   * xdg-xfce: revert default terminal to xfce4-terminal
