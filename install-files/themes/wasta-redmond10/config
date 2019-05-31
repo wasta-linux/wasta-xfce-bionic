@@ -1,0 +1,76 @@
+<theme name = "Wasta-Redmond10">
+<popup_style file_name="wasta.tar.gz" />
+<colors>
+	<color1 name="window list background"   default="#2B2E39" opacity="100" />
+	<color2 name="normal text"              default="#FFFFFF" opacity="100" />
+	<color3 name="active window text"       default="#FFFFFF" opacity="100" />
+	<color5 name="active + indicator color" default="#FFFFFF" opacity="100" />
+	<color6 name="launching color"          default="#5294E2" opacity="100" />
+	<color7 name="attention color"          default="#F08437" opacity="100" />
+	<color8 name="minimized color"          default="#2B2E39" opacity="30"  />
+</colors>
+<pixmaps>
+	<pixmap_from_file name="active" file="active.png" />
+	<pixmap_from_file name="running" file="running.png" />
+	<pixmap_from_file name="running-2" file="running-2.png" />
+	<pixmap_from_file name="running-3" file="running-3.png" />
+	<pixmap_from_file name="hover" file="hover.png" />
+	<pixmap_from_file name="launching" file="launching.png" />
+	<pixmap_from_file name="attention" file="attention.png" />
+</pixmaps>
+<sets>
+	<set name="as"  left="90"    right="-90"  up="180"  down="0"    />
+</sets>
+<button_pixmap gap = "0" aspect_ratio="3/2" aspect_ratio_v="1/1" windows_cnt="3">
+	<get_icon size="-3" />
+	<correct_size />
+	<if type="blink">
+		<composite bg="attention" fg="self" opacity="100" />
+	</if>
+	<if type="active">
+		<composite bg="active" fg="self" opacity="100" />
+	</if>
+	<if type="!launcher" >
+		<if windows="1">
+		<composite bg="self" fg="running" angle="as" />
+		</if>
+		<if windows="2">
+		<composite bg="self" fg="running-2" angle="as" />
+		</if>
+		<if windows="3">
+		<composite bg="self" fg="running-3" angle="as" />
+		</if>
+		<if type="some_minimized" >
+			<if windows="1">
+			<composite bg="self" fg="running" opacity="50"/>
+			</if>
+			<if windows="2">
+			<composite bg="self" fg="running-2" opacity="50"/>
+			</if>
+			<if windows="3">
+			<composite bg="self" fg="running-3" opacity="50"/>
+			</if>
+		</if>
+		<if type="all_minimized" >
+			<if windows="1">
+			<composite bg="self" fg="running" opacity="10"/>
+			</if>
+			<if windows="2">
+			<composite bg="self" fg="running-2" opacity="10"/>
+			</if>
+			<if windows="3">
+			<composite bg="self" fg="running-3" opacity="10"/>
+			</if>
+		</if>
+	</if>
+	<if type="mouse_over">
+		<composite bg="hover" fg="self" opacity="100" />
+	</if>
+	<if type="needs_attention">
+		<composite bg="attention" fg="self" opacity="100" />
+	</if>
+	<if type="launching">
+		<composite bg="launching" fg="self" opacity="100" />
+	</if>
+</button_pixmap>
+</theme>
