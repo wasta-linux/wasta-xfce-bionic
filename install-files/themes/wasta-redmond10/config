@@ -24,9 +24,6 @@
 <button_pixmap gap = "0" aspect_ratio="3/2" aspect_ratio_v="1/1" windows_cnt="3">
 	<get_icon size="-3" />
 	<correct_size />
-	<if type="blink">
-		<composite bg="attention" fg="self" opacity="100" />
-	</if>
 	<if type="active">
 		<composite bg="active" fg="self" opacity="100" />
 	</if>
@@ -63,14 +60,17 @@
 			</if>
 		</if>
 	</if>
-	<if type="mouse_over">
-		<composite bg="hover" fg="self" opacity="100" />
+	<if type="launching">
+		<composite bg="launching" fg="self" opacity="100" />
+	</if>
+	<if type="blink">
+		<composite bg="attention" fg="self" opacity="100" />
 	</if>
 	<if type="needs_attention">
 		<composite bg="attention" fg="self" opacity="100" />
 	</if>
-	<if type="launching">
-		<composite bg="launching" fg="self" opacity="100" />
+	<if type="mouse_over">
+		<composite bg="hover" fg="self" opacity="100" />
 	</if>
 </button_pixmap>
 </theme>
