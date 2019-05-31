@@ -13,6 +13,8 @@
 #
 #   2019-01-18 rik: initial script
 #   2019-01-30 rik: cupertino and unity need borderless_maximize
+#   2019-05-30 rik: set Wasta-Redmond10 as default dbx theme, continue to use
+#       Wasta-Unite for Unity
 #
 # ==============================================================================
 
@@ -84,20 +86,31 @@ then
 fi
 
 # Make initial dockbarx settings changes (compositing later...)
-gconftool-2 -s /apps/dockbarx/theme -t string "Wasta-Unite"
+gconftool-2 -s /apps/dockbarx/theme -t string "Wasta-Redmond10"
 gconftool-2 -s /apps/dockbarx/window_title_width -t integer "180"
 gconftool-2 -s /apps/dockbarx/show_only_current_desktop -t boolean "true"
 
 sleep 1
 
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color1 -t string "#2F343F"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color1_alpha -t integer "230"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color2 -t string "#FFFFFF"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color3 -t string "#FFFFFF"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color5 -t string "#FFFFFF"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color6 -t string "#5294E2"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/color7 -t string "#5294E2"
-gconftool-2 -s /apps/dockbarx/themes/Wasta_Unite/popup_style_file -t string wasta-dbx.tar.gz
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color1 -t string "#2F343F"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color1_alpha -t integer "230"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color2 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color3 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color5 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color6 -t string "#5294E2"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/color7 -t string "#5294E2"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Unite/popup_style_file -t string wasta.tar.gz
+
+sleep 1
+
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color1 -t string "#2F343F"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color1_alpha -t integer "230"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color2 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color3 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color5 -t string "#FFFFFF"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color6 -t string "#5294E2"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/color7 -t string "#5294E2"
+gconftool-2 -s /apps/dockbarx/themes/Wasta-Redmond10/popup_style_file -t string wasta.tar.gz
 
 DBX_LAUNCHERS=$(gconftool-2 -g /apps/dockbarx/launchers)
 
@@ -123,6 +136,8 @@ case "$CHOICE" in
     xfpanel-switch load /usr/share/xfpanel-switch/layouts/Wasta-Redmond7.tar.bz2
 ;;
 "unity")
+    # Make initial dockbarx settings changes (compositing later...)
+    gconftool-2 -s /apps/dockbarx/theme -t string "Wasta-Unite"
     #xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s true
     #xfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true
     xfconf-query -c xfwm4 -p /general/button_layout -s "CMH|O"

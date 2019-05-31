@@ -1,5 +1,5 @@
 <theme name = "Wasta-Unite">
-<popup_style file_name="wasta-dbx.tar.gz" />
+<popup_style file_name="wasta.tar.gz" />
 <colors>
 	<color1 name="window list background"   default="#2F343F" opacity="80"  />
 	<color2 name="normal text"              default="#FFFFFF" opacity="100" />
